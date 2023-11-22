@@ -40,7 +40,7 @@ namespace TootTallyBackgroundDim
         private void TryInitialize()
         {
             // Bind to the TTModules Config for TootTally
-            ModuleConfigEnabled = TootTallyCore.Plugin.Instance.Config.Bind("Modules", "<insert module name here>", true, "<insert module description here>");
+            ModuleConfigEnabled = TootTallyCore.Plugin.Instance.Config.Bind("Modules", "Background Dim", true, "Enable reducing background brightness");
             TootTallyModuleManager.AddModule(this);
             TootTallySettings.Plugin.Instance.AddModuleToSettingPage(this);
         }
@@ -52,7 +52,7 @@ namespace TootTallyBackgroundDim
 
             DimAmount = config.Bind("General", "Background Dim Amount", 0.75f, "The amount to dim the background by as a percentage.");
 
-            settingPage = TootTallySettingsManager.AddNewPage("ModulePageName", "HeaderText", 40f, new Color(0,0,0,0));
+            settingPage = TootTallySettingsManager.AddNewPage("Background Dim", "Background Dim", 40f, new Color(0,0,0,0));
             settingPage?.AddSlider("DimSlider", 0, 1, 350, "Dim Amount", DimAmount, false);
 
 
