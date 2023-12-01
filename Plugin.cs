@@ -55,6 +55,7 @@ namespace TootTallyBackgroundDim
             settingPage = TootTallySettingsManager.AddNewPage("Background Dim", "Background Dim", 40f, new Color(0,0,0,0));
             settingPage?.AddSlider("DimSlider", 0, 1, 350, "Dim Amount", DimAmount, false);
 
+            TootTallySettings.Plugin.TryAddThunderstoreIconToPageButton(Instance.Info.Location, Name, settingPage);
 
             _harmony.PatchAll(typeof(BackgroundDimController));
             LogInfo($"Module loaded!");
