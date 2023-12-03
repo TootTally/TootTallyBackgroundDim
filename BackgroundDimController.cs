@@ -1,9 +1,4 @@
 ﻿using HarmonyLib;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,6 +45,7 @@ namespace TootTallyBackgroundDim
         [HarmonyPostfix]
         public static void OnLoadAssetBundleActivateBreathMeterCanvas()
         {
+            if (OptionalGameplayUIReducer.ShouldHideBreathMeter()) return;
             _currentGCInstance.topbreath.transform.parent.parent.gameObject.SetActive(true);
         }
     }
